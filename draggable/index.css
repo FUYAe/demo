@@ -1,0 +1,193 @@
+    .container {
+        height: 400px;
+        width: 400px;
+        position: fixed;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    
+    .drag-bar {
+        height: 30px;
+        width: 100%;
+        background-color: #d8dadb;
+    }
+    
+    .content {
+        height: calc(100% - 30px);
+        width: 100%;
+        background-color: #f1f3f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    h1 {
+        margin: 0;
+    }
+    /* 四条边可拖动区域 */
+    
+    .edge {
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+    }
+    
+    .edge-bottom {
+        width: 100%;
+        height: 4px;
+        bottom: -2px;
+    }
+    
+    .edge-top {
+        width: 100%;
+        height: 4px;
+        top: -2px;
+    }
+    
+    .edge-top:hover,
+    .edge-bottom:hover {
+        cursor: row-resize;
+    }
+    
+    .edge-left {
+        height: 100%;
+        width: 4px;
+        left: -2px;
+        top: 0;
+    }
+    
+    .edge-right {
+        height: 100%;
+        width: 4px;
+        right: -2px;
+        top: 0;
+    }
+    
+    .edge-left:hover,
+    .edge-right:hover {
+        cursor: col-resize;
+    }
+    /* 四边角 */
+    
+    .corner {
+        display: inline-block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        z-index: 11;
+    }
+    
+    .corner:hover {
+        cursor: move;
+    }
+    
+    .corner-lt {
+        top: -2px;
+        left: -2px;
+    }
+    
+    .corner-lb {
+        bottom: -2px;
+        left: -2px;
+    }
+    
+    .corner-rt {
+        top: -2px;
+        right: -2px;
+    }
+    
+    .corner-rb {
+        bottom: -2px;
+        right: -2px;
+    }
+    
+    * {
+        user-select: none;
+    }
+    
+    .w-out,
+    .w-narrow,
+    .w-ext {
+        position: absolute;
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        background-color: #9b9b9b;
+        border-radius: 50px;
+        top: 10px;
+        box-shadow: 0 0 1px 0.3px rgba(0, 0, 0, 0.2);
+    }
+    
+    .w-out {
+        left: 18px;
+        background-color: #ff5f57;
+    }
+    
+    .w-out:hover:before {
+        content: "";
+        background-color: rgba(32, 28, 28, 0.782);
+        position: absolute;
+        top: 4.3px;
+        left: 1.6px;
+        width: 8px;
+        height: 1.15px;
+        transform: rotate(45deg);
+    }
+    
+    .w-out:hover:after {
+        content: "";
+        background-color: rgba(32, 28, 28, 0.782);
+        ;
+        position: absolute;
+        top: 4.7px;
+        left: 1.6px;
+        width: 8px;
+        height: 1.15px;
+        transform: rotate(-45deg);
+    }
+    
+    .w-narrow {
+        left: 37px;
+        background-color: #febc2e;
+    }
+    
+    .w-narrow:hover::before {
+        content: "";
+        background-color: rgba(32, 28, 28, 0.782);
+        position: absolute;
+        top: 5px;
+        left: 1.4px;
+        width: 8px;
+        border-radius: 1px;
+        height: 1.5px;
+    }
+    
+    .w-ext {
+        left: 56px;
+        background-color: #29c940;
+    }
+    
+    .w-ext:hover::before {
+        content: "";
+        background-color: #004e00;
+        position: absolute;
+        display: block;
+        top: 2px;
+        left: 1.8px;
+        width: 7px;
+        height: 7px;
+        border-radius: 1px;
+    }
+    
+    .w-ext:hover::after {
+        content: "";
+        background-color: #29c940;
+        position: absolute;
+        display: block;
+        top: 4.5px;
+        left: 0.8px;
+        width: 10px;
+        height: 2px;
+        transform: rotate(-45deg);
+    }
